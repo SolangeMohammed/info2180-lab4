@@ -70,3 +70,7 @@ $superheroes = [
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+
+<?php
+    header('Access-Control-Allow-Origin: *');
+?>
