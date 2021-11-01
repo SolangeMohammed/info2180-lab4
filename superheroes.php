@@ -64,13 +64,35 @@ $superheroes = [
 ];
 
 ?>
+<?php $q=$_REQUEST['q'];
+$search = $q;
+if($search !== ""):?>
+<ul>
+<?php foreach ($superheroes as $superhero): ?>
+    <?php if($search == $superhero['name']) || ($search == $superhero['alias']) ?>
 
+       <li><?= $superhero['name']; ?></li>
+       <?= $superhero['alias'];?>
+       <?=$superhero['biography'];?>
+    <?php endif; ?> 
+<?php endforeach; ?>
+<?php endif; ?>
+</ul>
+
+<?php if($search !== $superhero['name']) !! ($search !== $superhero['alias']) ?>
+    <? echo "<p style='color:red;'>"."SUPERHERO NOT FOUND"?>
+
+<?php $q=$_REQUEST['q'];
+if($q == ""):?>
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
+<?php endif; ?>
 </ul>
 
+
+<ul>
 <?php
     header('Access-Control-Allow-Origin: *');
 ?>
